@@ -3,13 +3,15 @@ import { StyleSheet, Text, View } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import Basic from './screens/Basic';
 import GestureHandlerExample from './screens/GestureHandlerExample';
+import ScrollAnimation from './screens/ScrollAnimation';
 
 export default function App() {
   return (
     <SafeAreaProvider>
       <View style={styles.container}>
         {/* <Basic /> */}
-        <GestureHandlerExample />
+        {/* <GestureHandlerExample /> */}
+        <ScrollAnimation />
         <StatusBar style="auto" />
       </View>
     </SafeAreaProvider>
