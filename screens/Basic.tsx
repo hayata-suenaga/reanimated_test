@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react';
 import { Button, StyleSheet, Text, View } from 'react-native';
 import Animated, {
+  interpolate,
+  interpolateColor,
   useAnimatedStyle,
   useSharedValue,
   withTiming,
@@ -15,7 +17,15 @@ const Basic = () => {
     opacity.value = withTiming(visible ? 1 : 0, { duration: 500 });
   }, [visible]);
 
-  const animatedStyle = useAnimatedStyle(() => ({ opacity: opacity.value }));
+  const animatedStyle = useAnimatedStyle(() => ({
+    opacity: opacity.value,
+    transform: [{ scale: interpolate(opacity.value, [0, 1], [0.5, 1]) }],
+    backgroundColor: interpolateColor(
+      opacity.value,
+      [0, 1],
+      ['blue', 'tomato']
+    ),
+  }));
 
   return (
     <SafeAreaView style={styles.container}>
@@ -36,6 +46,5 @@ const styles = StyleSheet.create({
   rectangle: {
     height: 50,
     width: 50,
-    backgroundColor: 'tomato',
   },
 });
