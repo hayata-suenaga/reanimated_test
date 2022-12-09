@@ -30,6 +30,7 @@ const Basic = () => {
   return (
     <SafeAreaView style={styles.container}>
       <Animated.View style={[styles.rectangle, animatedStyle]} />
+      <View style={[styles.rectangle, { backgroundColor: 'tomato' }]} />
       <Button title="Click me!" onPress={() => setVisible(!visible)} />
     </SafeAreaView>
   );
